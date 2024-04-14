@@ -10,7 +10,21 @@
     "react/prop-types": 1,
     "indent": ["error", 2],
     "linebreak-style": 0,
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "jsx-a11y/no-static-element-interactions": [
+      "error",
+      {
+        "handlers": [
+          "onClick",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp"
+        ],
+        "allowExpressionValues": true
+      }
+    ]
   },
   "parserOptions": {
     "ecmaVersion": 2021,
