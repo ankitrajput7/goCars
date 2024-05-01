@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import {
-//   IoMdArrowDropleftCircle,
-//   IoMdArrowDroprightCircle,
-// } from "react-icons/io";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { GoDotFill, GoDot } from "react-icons/go";
 
@@ -32,7 +28,7 @@ function InformationCarosal() {
   }, [currentImgIndex]);
 
   return (
-    <div className="relative m-10">
+    <div className="relative ">
       <button
         className="absolute top-1/2 left-0 text-5xl"
         onClick={handlePrevious}
@@ -45,7 +41,7 @@ function InformationCarosal() {
           return (
             <div className="static flex" key={index}>
               <img
-                className="h-40 xs:h-72 xl:h-80  w-full"
+                className="h-40 xs:h-80  w-full"
                 src={posterImage}
                 alt="poster_image"
               ></img>

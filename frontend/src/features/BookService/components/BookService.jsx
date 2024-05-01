@@ -5,8 +5,14 @@ import BookingForm from "./BookingForm.jsx";
 function BookService() {
   return (
     <div className="bg-white">
-      <div className="grid sm:grid-cols-2 bg-gray-300">
-        <InformationCarosal />
+      <div className="grid sm:grid-cols-[60%_40%] bg-gray-300">
+        <div className="m-10">
+          <InformationCarosal />
+          <div className="flex items-center h-16 text-2xl font-semibold bg-white text-black">
+            Booking Service
+          </div>
+        </div>
+
         <BookingForm />
       </div>
     </div>
