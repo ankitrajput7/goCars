@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "book-service",
+        path: "book-service/:servicetype",
         element: <BookService />,
       },
     ],

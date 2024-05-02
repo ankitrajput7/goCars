@@ -11,7 +11,7 @@ function OfferCarosalCard({ offerDetail }) {
     <div
       className="flex flex-col w-full sm:max-w-80 h-full  shadow-2xl mt-4 "
       onClick={() => {
-        navigate("/book-service");
+        navigate(`/book-service/${offerType}`);
       }}
       role="button"
     >

@@ -6,7 +6,6 @@ import interactionPlugin from "@fullcalendar/interaction";
 import multiMonthPlugin from "@fullcalendar/multimonth";
 const SelectServiceDate = ({ handleServiceDate }) => {
   const handleDateClick = (arg) => {
-    console.log(arg);
     handleServiceDate(arg.dateStr);
   };
 
@@ -29,11 +28,31 @@ const SelectServiceDate = ({ handleServiceDate }) => {
 
 function BookingForm() {
   const [openCalender, setOpenCalender] = useState(false);
-  const [sercviceDate, setServiceDate] = useState("");
+  const [bookingDetails, setBookingDetails] = useState({
+    pincode: "",
+    name: "",
+    mobile: "",
+    model: "",
+    bookingDate: "",
+    mobileOtp: "",
+  });
 
   const handleServiceDate = (date) => {
-    setServiceDate(date);
+    setBookingDetails((prev) => {
+      return { ...prev, bookingDate: date };
+    });
     setOpenCalender(false);
+  };
+
+  const handleBookingDetails = (e) => {
+    setBookingDetails((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleSubmit = () => {
+    alert(bookingDetails);
+    console.log(bookingDetails);
   };
 
   return (
@@ -43,12 +62,16 @@ function BookingForm() {
         className="bg-gray-100 h-10 px-2 outline-none rounded-md "
         type="text"
         placeholder="Pincode"
+        name="pincode"
+        onChange={handleBookingDetails}
       ></input>
 
       <input
         className="bg-gray-100 h-10 px-2 outline-none rounded-md"
         type="text"
         placeholder="Name"
+        name="name"
+        onChange={handleBookingDetails}
       ></input>
 
       <div className="sm:grid sm:grid-cols-3 sm:gap-4 ">
@@ -57,6 +80,8 @@ function BookingForm() {
             className="w-full bg-gray-100 h-10 outline-none rounded-md px-2"
             type="text"
             placeholder="Mobile"
+            name="mobile"
+            onChange={handleBookingDetails}
           ></input>
           <button className="absolute h-[50%] top-[25%] right-2 px-1 rounded-sm bg-green-200 font-medium">
             Verify
@@ -67,10 +92,16 @@ function BookingForm() {
           className="w-full bg-gray-100 h-10 px-2 outline-none rounded-md mt-4 sm:mt-0"
           type="text"
           placeholder="Enter OTP"
+          name="mobileOtp"
+          onChange={handleBookingDetails}
         ></input>
       </div>
 
-      <select className="outline-none bg-gray-100 h-10 px-2 rounded-md">
+      <select
+        className="outline-none bg-gray-100 h-10 px-2 rounded-md"
+        name="model"
+        onChange={handleBookingDetails}
+      >
         <option>Make & Model</option>
         <option value={"swift petrol"}>Swift Petrol</option>
         <option value={"swift diesel"}>Swift Diesel</option>
@@ -84,7 +115,9 @@ function BookingForm() {
           className="bg-gray-100 h-10 px-2 rounded-md"
           onClick={() => setOpenCalender(true)}
         >
-          {sercviceDate ? sercviceDate : "Select Date"}
+          {bookingDetails.bookingDate.length > 0
+            ? bookingDetails.bookingDate
+            : "Select Date"}
         </button>
 
         {openCalender && (
@@ -92,7 +125,10 @@ function BookingForm() {
         )}
       </div>
 
-      <button className=" font-medium py-1 w-fit self-center px-6 border-[1px] border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white rounded-sm">
+      <button
+        className="font-medium py-1 w-fit self-center px-6 border-[1px] border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white rounded-sm"
+        onClick={handleSubmit}
+      >
         Confirm
       </button>
     </div>
