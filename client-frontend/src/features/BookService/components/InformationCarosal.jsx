@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { GoDotFill, GoDot } from "react-icons/go";
+import { offerTypeImagesLinks } from "../utils/constants";
 
-function InformationCarosal() {
+function InformationCarosal({ offerType }) {
+  let promotionPosterImages =
+    offerTypeImagesLinks[
+      `${offerType[0].toLowerCase()}${offerType.slice(1).split(" ").join("")}`
+    ];
+
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
-  let promotionPosterImages = [
-    "https://c.wallhere.com/photos/7b/70/1500x800_px_Chile_eruption_Lava_Long_Exposure_nature_smoke_Snowy_Peak-1032420.jpg!d",
-    "https://www.strivescan.com/wp-content/uploads/2020/08/laptop-1500x800-1.jpg",
-    "https://cdn1.epicgames.com/ue/product/Screenshot/gallImgA33-1920x1080-418744c1e5b5b5f8b1e762ee7c9168a8.png?resize=1&w=1920",
-  ];
-
   const handlePrevious = () => {
     currentImgIndex > 0
       ? setCurrentImgIndex(currentImgIndex - 1)
@@ -23,7 +23,7 @@ function InformationCarosal() {
   };
 
   useEffect(() => {
-    let timer = setTimeout(handleNext, 3500);
+    let timer = setTimeout(handleNext, 5000);
     return () => clearTimeout(timer);
   }, [currentImgIndex]);
 

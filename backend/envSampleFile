@@ -1,0 +1,9 @@
+// server port
+PORT = 5001
+
+// database connection details
+HOST = "your db host"
+USER = "your db user name"
+PASSWORD = "your db password"
+DATABASE = "your db name"
+DB_PORT = 3310
