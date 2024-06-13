@@ -1,10 +1,13 @@
 import express from "express";
-const router = express.Router();
+const logoRouter = express.Router();
 import logoController from "../controllers/logo.controller.js";
+import multer from "multer";
 
-router.get("/logo", logoController.get);
-router.post("/logo", logoController.create);
-router.put('/:id', logoController.update);
-router.delete('/:id', logoController.remove);
+const upload = multer();
 
-export default router;
+logoRouter.get("/logo", logoController.get);
+logoRouter.post("/logo", upload.single("image"), logoController.create);
+logoRouter.put("/:id", logoController.update);
+logoRouter.delete("/:id", logoController.remove);
+
+export default logoRouter;

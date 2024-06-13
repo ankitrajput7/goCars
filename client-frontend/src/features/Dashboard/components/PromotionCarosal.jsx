@@ -8,10 +8,9 @@ import { GoDotFill, GoDot } from "react-icons/go";
 function PromotionCarosal() {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
   let promotionPosterImages = [
-    "https://www.riverlink.net.au/wp-content/uploads/2019/02/Car-Wash-for-Sparkles-IMO.jpg",
-    "https://www.lastartups.com/wp-content/uploads/2020/06/LA-Startups-RepairSmith-Launches-Convenient-Car-Repair-Service-Delivered-to-Your-Driveway.jpg",
-    "https://www.singhsautocentre.com.au/wp-content/uploads/2017/02/auto-repair-team.png",
-    
+    "https://go-cars2.s3.ap-south-1.amazonaws.com/admin-upload/promotion-poster-1",
+    "https://go-cars2.s3.ap-south-1.amazonaws.com/admin-upload/promotion-poster-2",
+    "https://go-cars2.s3.ap-south-1.amazonaws.com/admin-upload/promotion-poster-3",
   ];
 
   const handlePrevious = () => {

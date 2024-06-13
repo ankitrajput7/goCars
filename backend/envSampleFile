@@ -7,3 +7,12 @@ USER = "your db user name"
 PASSWORD = "your db password"
 DATABASE = "your db name"
 DB_PORT = 3310
+
+// aws credentials
+AWS_ACCESS_KEY_ID = ""
+AWS_SECRET_ACCESS_KEY = ""
+REGION = ""
+BUCKET = ""
+
+AWS_HOST = ""
+AWS_DB_PORT = 3306

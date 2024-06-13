@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/images/logo.png";
 import { MdEditLocation } from "react-icons/md";
 import { GrContact } from "react-icons/gr";
 import poster_goCars_withoutBg from "../../assets/images/poster-goCars-withoutBg.png";
@@ -11,7 +10,13 @@ function Header() {
     <header className="sticky top-0 z-[999] flex flex-col bg-gray-100 w-full shadow-2xl max-w-[1500px]">
       <div className="flex justify-between h-12 xs:h-20 ">
         <div className="flex space-x-4 items-center ml-2">
-          <img className="h-20 " src={logo} alt="logo"></img>
+          <img
+            className="h-20 "
+            src={
+              "https://go-cars2.s3.ap-south-1.amazonaws.com/admin-upload/logo"
+            }
+            alt="logo"
+          ></img>
           <h1 className="text-base lg:text-xl font-bold text-blue-900 hidden xs:inline">
             {slogan}
           </h1>

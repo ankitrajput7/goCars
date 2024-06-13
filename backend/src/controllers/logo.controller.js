@@ -1,17 +1,9 @@
 import logoService from "../services/logo.service.js";
+import { putLogoImageObject } from "../services/aws.service.js";
 
 async function get(req, res, next) {
   try {
-    throw new Error("wrong here");
-
-    res
-      .status(200)
-      .cookie(
-        "uuid",
-        { uuid: "23jfdh7567ddcsdg86g65s8s75f5v5v9x2s" },
-        { maxAge: 60 * 60 * 1 }
-      )
-      .send({ message: "hello" });
+    res.status(200).send({ message: "getting logo successfully.", data: [] });
   } catch (err) {
     next(err);
   }
@@ -19,7 +11,10 @@ async function get(req, res, next) {
 
 async function create(req, res, next) {
   try {
-    res.json(await logoService.create(req.body.logo));
+    const { fileName, contentType } = req.body;
+    const url = await putLogoImageObject(fileName, contentType);
+
+    res.status(201).send({ message: "url created successfully.", url });
   } catch (err) {
     next(err);
   }
